@@ -83,7 +83,7 @@ public class Digraph<Vertex> implements Graph<Vertex> {
 
 
     @Override
-    public Iterable<Vertex> adj(Vertex v) throws NoSuchVertexException {
+    public List<Vertex> adj(Vertex v) throws NoSuchVertexException {
         validateVertex(v);
         return Collections.unmodifiableList(adj.get(v));
     }

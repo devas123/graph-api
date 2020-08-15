@@ -4,6 +4,8 @@ import org.graphlib.Graph;
 import org.graphlib.exception.NoSuchVertexException;
 import org.graphlib.exception.VertexExistsException;
 
+import java.util.List;
+
 /**
  * Undirected graph.
  * @param <Vertex> type of the vertices.
@@ -27,11 +29,11 @@ public class UndirectedGraph<Vertex> implements Graph<Vertex> {
     }
 
     @Override
-    public Iterable<Vertex> adj(Vertex v) throws NoSuchVertexException {
+    public List<Vertex> adj(Vertex v) throws NoSuchVertexException {
         return delegate.adj(v);
     }
 
-    public int indegree(Vertex v) throws NoSuchVertexException {
+    protected int indegree(Vertex v) throws NoSuchVertexException {
         return delegate.indegree(v);
     }
 }
