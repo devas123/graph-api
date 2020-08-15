@@ -4,6 +4,10 @@ import org.graphlib.Graph;
 import org.graphlib.exception.NoSuchVertexException;
 import org.graphlib.exception.VertexExistsException;
 
+/**
+ * Undirected graph.
+ * @param <Vertex> type of the vertices.
+ */
 public class UndirectedGraph<Vertex> implements Graph<Vertex> {
    private final Digraph<Vertex> delegate;
 

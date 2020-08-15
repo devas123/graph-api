@@ -4,10 +4,22 @@ import org.graphlib.exception.NoSuchVertexException;
 
 import java.util.*;
 
+/**
+ * Operations on graphs.
+ */
 public class Graphs {
     private Graphs() {
     }
 
+    /**
+     * Get path from vertex {@code from} to the vertex {@code to} in the {@code graph}
+     *
+     * @param graph - the graph
+     * @param from - start vertex.
+     * @param to - end vertex.
+     * @return list of vertices connecting {@code from} (inclusive) and {@code to} (inclusive)
+     * @throws NoSuchVertexException if {@code from} or {@code to} is not part of the graph.
+     */
     public static <Vertex> List<Vertex> getPath(AdjacentProvider<Vertex> graph, Vertex from, Vertex to) throws NoSuchVertexException {
         Objects.requireNonNull(graph);
         Objects.requireNonNull(from);

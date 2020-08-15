@@ -9,16 +9,15 @@ import java.util.*;
 /**
  * Directed graph implementation
  *
- * @param <Vertex>
+ * @param <Vertex> type of the vertices
  */
 public class Digraph<Vertex> implements Graph<Vertex> {
     private final Map<Vertex, List<Vertex>> adj;    // adj[v] = adjacency list for vertex v
     private final Map<Vertex, Integer> indegree;
 
     /**
-     * Initializes an empty digraph with <em>V</em> vertices.
+     * Initializes an empty digraph.
      *
-     * @throws IllegalArgumentException if {@code V < 0}
      */
     public Digraph() {
         adj = new HashMap<>();
@@ -59,13 +58,6 @@ public class Digraph<Vertex> implements Graph<Vertex> {
             throw new NoSuchVertexException("Vertex " + v + " is not in the graph");
     }
 
-    /**
-     * Adds the directed edge v→w to this digraph.
-     *
-     * @param v the tail vertex
-     * @param w the head vertex
-     * @throws IllegalArgumentException unless both {@code 0 <= v < V} and {@code 0 <= w < V}
-     */
     @Override
     public void addEdge(Vertex v, Vertex w) throws NoSuchVertexException {
         validateVertex(v);
@@ -80,12 +72,6 @@ public class Digraph<Vertex> implements Graph<Vertex> {
     }
 
 
-    /**
-     * Adds the directed edge v→w to this digraph.
-     *
-     * @param v the tail vertex
-     * @throws IllegalArgumentException unless both {@code 0 <= v < V} and {@code 0 <= w < V}
-     */
     @Override
     public void addVertex(Vertex v) throws VertexExistsException {
         if (adj.putIfAbsent(v, new ArrayList<>()) == null) {
@@ -95,13 +81,7 @@ public class Digraph<Vertex> implements Graph<Vertex> {
         }
     }
 
-    /**
-     * Returns the vertices adjacent from vertex {@code v} in this digraph.
-     *
-     * @param v the vertex
-     * @return the vertices adjacent from vertex {@code v} in this digraph, as an iterable
-     * @throws IllegalArgumentException unless {@code 0 <= v < V}
-     */
+
     @Override
     public Iterable<Vertex> adj(Vertex v) throws NoSuchVertexException {
         validateVertex(v);
